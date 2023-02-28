@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoyohann <yoyohann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/30 12:02:55 by yonas             #+#    #+#             */
-/*   Updated: 2023/02/28 05:35:12 by yoyohann         ###   ########.fr       */
+/*   Created: 2023/02/28 03:01:21 by yoyohann          #+#    #+#             */
+/*   Updated: 2023/02/28 03:02:02 by yoyohann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strtrim(char const *s1, char const *set)
+void ft_strcpy(char *s1, char const *s2)
 {
-	int		i;
-	int		s;
-	int		e;
-	char	*trim;
+	int i;
 
-	s = 0;
-	while (s1[s] && ft_chrmatch(s1[s], set))
-		s++;
-	e = ft_strlen(s1);
-	while (e > s && ft_chrmatch(s1[e - 1], set))
-		e--;
-	trim = (char *) malloc(sizeof(char) * ((e - s) + 1));
-	if (trim == 0)
-		return (NULL);
+	if (!s2)
+		return ;
 	i = 0;
-	while (s < e)
-		trim[i++] = s1[s++];
-	trim[i] = '\0';
-	return (trim);
+	while (s2[i])
+	{
+		s1[i] = s2[i];
+		i++;
+	}
+	s1[i] = '\0';
 }

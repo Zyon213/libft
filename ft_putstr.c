@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoyohann <yoyohann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/30 12:02:55 by yonas             #+#    #+#             */
-/*   Updated: 2023/02/28 05:35:12 by yoyohann         ###   ########.fr       */
+/*   Created: 2023/02/28 03:16:09 by yoyohann          #+#    #+#             */
+/*   Updated: 2023/02/28 03:17:19 by yoyohann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-char	*ft_strtrim(char const *s1, char const *set)
+static void	ft_putchar(char c)
 {
-	int		i;
-	int		s;
-	int		e;
-	char	*trim;
+	write(1, &c, 1);
+}
 
-	s = 0;
-	while (s1[s] && ft_chrmatch(s1[s], set))
-		s++;
-	e = ft_strlen(s1);
-	while (e > s && ft_chrmatch(s1[e - 1], set))
-		e--;
-	trim = (char *) malloc(sizeof(char) * ((e - s) + 1));
-	if (trim == 0)
-		return (NULL);
+void	ft_putstr(char *str)
+{
+	int	i;
+
 	i = 0;
-	while (s < e)
-		trim[i++] = s1[s++];
-	trim[i] = '\0';
-	return (trim);
+	while (str[i])
+		ft_putchar(str[i++]);
 }

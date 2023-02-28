@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_join.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoyohann <yoyohann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/30 12:02:55 by yonas             #+#    #+#             */
-/*   Updated: 2023/02/28 05:35:12 by yoyohann         ###   ########.fr       */
+/*   Created: 2023/02/28 05:22:10 by yoyohann          #+#    #+#             */
+/*   Updated: 2023/02/28 05:22:41 by yoyohann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+char *ft_join(char *s1, char *s2)
 {
-	int		i;
-	int		s;
-	int		e;
-	char	*trim;
+	int len;
+	char *join;
 
-	s = 0;
-	while (s1[s] && ft_chrmatch(s1[s], set))
-		s++;
-	e = ft_strlen(s1);
-	while (e > s && ft_chrmatch(s1[e - 1], set))
-		e--;
-	trim = (char *) malloc(sizeof(char) * ((e - s) + 1));
-	if (trim == 0)
+	if (!s2)
+		return (s1);
+	if (s1)
+		len = ft_strlen(s1);
+	else
+		len = 0;
+	join = malloc(ft_strlen(s2) + len + 1);
+	if (!join)
 		return (NULL);
-	i = 0;
-	while (s < e)
-		trim[i++] = s1[s++];
-	trim[i] = '\0';
-	return (trim);
+	ft_strcpy(join, s1);
+	ft_strcpy(join + len, s2);
+	free(s1);
+	return (join);
 }

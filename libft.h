@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoyohann <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yoyohann <yoyohann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 11:28:27 by yoyohann          #+#    #+#             */
-/*   Updated: 2021/10/12 11:57:51 by yoyohann         ###   ########.fr       */
+/*   Updated: 2023/02/28 05:34:19 by yoyohann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,23 @@ typedef unsigned int	t_size;
 int		ft_atoi(const char *nbr);
 void	ft_bzero(void *s, unsigned int n);
 void	*ft_calloc(unsigned int nmemb, unsigned int size);
+int		ft_chrmatch(char const s1, char const *s2);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
+char	*ft_join(char *s1, char *s2);
 void	*ft_memchr(const void *s, int c, unsigned int n);
 int		ft_memcmp(const void *s1, const void *s2, unsigned int n);
 void	*ft_memcpy(void	*dest, const void *src, unsigned int n);
 void	*ft_memmove(void *s1, const void *s2, unsigned int n);
 void	*ft_memset(void *s, int c, unsigned int n);
 char	*ft_strchr(const char *str, int c);
+int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strdup(const char *s);
 size_t	ft_strlcat(char *dst, const char *src, unsigned int n);
+void	ft_strcpy(char *s1, char const *s2);
 size_t	ft_strlcpy(char *dst, const char *src, unsigned int n);
 int		ft_strlen(const char *str);
 char	*ft_strncat(char *dest, const char *src, unsigned int n);
@@ -52,6 +56,7 @@ char	*ft_strstr(const char *str, const char *to_find);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_itoa(int n);
+void	ft_putstr(char *str);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
